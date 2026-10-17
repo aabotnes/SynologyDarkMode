@@ -1,10 +1,12 @@
-# Dark Mode for Synology DSM
+# SynologyDarkMode
 
-A Package Center package that gives the DSM 7 web interface a dark theme. Start or stop the package to turn dark mode on or off.
+A real dark mode for the Synology DSM 7 web interface, installed as a regular Package Center package. No browser extension needed: it works in every browser and on every device you sign in from.
+
+The theme is built on your own NAS from the stylesheets DSM and your installed packages actually use, so it covers Control Panel, Package Center, File Station, Storage Manager, widgets and third-party apps, while photos, icons and wallpapers keep their real colours. Start or stop the package to turn dark mode on or off.
 
 ## Install
 
-1. Download the latest `DarkMode-x.y.z.spk` from [Releases](https://github.com/aabotnes/Synology-DSM-Darkmode/releases/latest).
+1. Download the latest `DarkMode-x.y.z.spk` from [Releases](https://github.com/aabotnes/SynologyDarkMode/releases/latest).
 2. In DSM, open **Package Center**, click **Manual Install**, choose the file and click **Next**.
    If DSM warns that the package is from an unknown publisher, click **Yes** to continue.
 3. Pick whether DSM should always be dark or follow your computer's light/dark setting.
@@ -47,7 +49,7 @@ The **Dark Mode** app in the DSM main menu shows whether the theme is on and whe
 - After installing or updating other packages, run the Dark Mode task once (or reboot) so their screens are included.
 - Some base selectors come from [danslabs/synology-dsm-dark-mode](https://github.com/danslabs/synology-dsm-dark-mode) (MIT, see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)).
 
-Tested against a simulated DSM file layout (`tools/test.sh`); it has not been run on real hardware yet, so please open an issue with your DSM version if something looks off.
+Developed and tested on DSM 7. If a screen still looks light or hard to read, please [open an issue](https://github.com/aabotnes/SynologyDarkMode/issues/new?template=looks-wrong.md) with a screenshot and the stylesheet bundle from the Dark Mode app.
 
 ## Build
 
@@ -57,3 +59,11 @@ tools/build.sh    # writes dist/DarkMode-<VERSION>.spk
 ```
 
 Every push to `main` runs the tests and builds the package. When `VERSION` holds a version that hasn't been released yet, it is published as a GitHub release.
+
+## Contributing
+
+Issues and pull requests are welcome. Run `python3 tools/test_gen.py` and `tools/test.sh` before sending a change. The generator must stay compatible with Python 3.8, which is what DSM 7 ships.
+
+## License
+
+[MIT](LICENSE). Not affiliated with or endorsed by Synology Inc. "Synology" and "DSM" are trademarks of Synology Inc.
